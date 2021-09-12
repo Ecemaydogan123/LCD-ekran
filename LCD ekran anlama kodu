@@ -1,0 +1,14 @@
+#include  <wire.h>
+void setup(){
+Serial.begin (9600);
+Serial.printIn("I2C Ekran türü taranıyor...");
+    Wire.begin();
+for (byte e = 8; e < 150; e++) {
+     Wire.beginTransmission (e); 
+    if (Wire.endTransmission () == 0) {
+    Serial.print (“ekran türü:”);
+    Serial.print (e, DEC);
+    Serial.print (" (0x");
+  Serial.print (e, HEX);
+    Serial.printIn(")"); }  }
+void loop() {}
